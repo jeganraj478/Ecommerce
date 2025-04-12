@@ -1,0 +1,174 @@
+/* RegisterForm.css */
+
+.register-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .register-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    margin-top: 32px;
+  }
+  
+  .register-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+  }
+  
+  .alert {
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+  }
+  
+  .alert-error {
+    background-color: #fdeded;
+    color: #d32f2f;
+    border: 1px solid #f5c2c7;
+  }
+  
+  .alert-success {
+    background-color: #edf7ed;
+    color: #2e7d32;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .register-form {
+    display: grid;
+    gap: 16px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .form-input {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+  }
+  
+  .form-input:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }
+  
+  .input-error {
+    border-color: #d32f2f;
+  }
+  
+  .input-error:focus {
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+  }
+  
+  .error-text {
+    color: #d32f2f;
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid #1976d2;
+    color: #1976d2;
+  }
+  
+  .btn-outline:hover:not(:disabled) {
+    background-color: rgba(25, 118, 210, 0.1);
+  }
+  
+  .btn-primary {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    background-color: #1565c0;
+  }
+  
+  .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .spinner-circle {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 480px) {
+    .register-card {
+      padding: 20px;
+    }
+    
+    .button-group {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+  }

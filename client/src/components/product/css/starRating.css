@@ -1,0 +1,40 @@
+/* client/src/styles/StarRating.css */
+.star-rating {
+    display: inline-flex;
+    direction: rtl; /* To make hover effect go from right to left */
+  }
+  
+  .star {
+    color: #ddd;
+    cursor: default;
+    transition: color 0.2s;
+  }
+  
+  .star.filled {
+    color: #f7c427;
+  }
+  
+  .star.editable {
+    cursor: pointer;
+  }
+  
+  .star-rating.small .star {
+    font-size: 16px;
+    margin-left: 2px;
+  }
+  
+  .star-rating.medium .star {
+    font-size: 22px;
+    margin-left: 3px;
+  }
+  
+  .star-rating.large .star {
+    font-size: 30px;
+    margin-left: 5px;
+  }
+  
+  /* This creates the fill effect when hovering */
+  .star-rating .star.editable:hover,
+  .star-rating .star.editable:hover ~ .star {
+    color: #f7c427;
+  }

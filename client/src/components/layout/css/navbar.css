@@ -1,0 +1,184 @@
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 70px;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 8px;
+  position: relative;
+}
+
+.navbar-logo {
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #1976d2;
+}
+
+.navbar-logo-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.icon-search,
+.icon-account,
+.icon-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.icon-search:hover,
+.icon-account:hover,
+.icon-cart:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #757575;
+}
+
+.icon-primary {
+  fill: #1976d2;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: rgba(97, 97, 97, 0.9);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -40px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* User menu styles */
+
+.user-menu {
+  position: absolute;
+  top: 70px;
+  right: 8px;
+  z-index: 1001;
+}
+
+.menu-content {
+  width: 200px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Responsive adjustment for the user menu */
+@media screen and (max-width: 768px) {
+  .user-menu {
+    right: 16px;
+  }
+}
+
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.menu-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.logout-item {
+  display: flex;
+  align-items: center;
+}
+
+.logout-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  fill: #757575;
+}
+
+/* Animation for menu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-content {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0 16px;
+  }
+
+  .icon-search,
+  .icon-account,
+  .icon-cart {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar-icons {
+    column-gap: 8px;
+  }
+}
