@@ -1,0 +1,33 @@
+service: mern-api
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ${env:AWS_REGION}
+  memorySize: 512
+  timeout: 10
+  stage: prod
+  environment:
+    NODE_ENV: production
+    MONGO_URI: ${env:MONGO_URI}
+    JWT_SECRET: ${env:JWT_SECRET}
+
+functions:
+  api:
+    handler: lambda.handler
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-esbuild
+  - serverless-dotenv-plugin
+
+package:
+  exclude:
+    - node_modules/**
+    - .git/**
+    - client/**
+    - dist/**
+    - build/**
