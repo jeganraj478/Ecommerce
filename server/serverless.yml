@@ -1,33 +1,41 @@
-service: mern-api
-
-frameworkVersion: '3'
+service: mern-backend-api
 
 provider:
   name: aws
   runtime: nodejs18.x
-  region: ${env:AWS_REGION}
-  memorySize: 512
-  timeout: 10
-  stage: prod
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
   environment:
-    NODE_ENV: production
+    NODE_ENV: ${env:NODE_ENV, 'dev'}
     MONGO_URI: ${env:MONGO_URI}
     JWT_SECRET: ${env:JWT_SECRET}
+    CLIENT_URL: ${env:CLIENT_URL}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: "*"
 
 functions:
   api:
-    handler: lambda.handler
+    handler: dist/lambda.handler
     events:
-      - httpApi: '*'
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
 
 plugins:
-  - serverless-esbuild
-  - serverless-dotenv-plugin
+  - serverless-offline
 
 package:
-  exclude:
-    - node_modules/**
-    - .git/**
-    - client/**
-    - dist/**
-    - build/**
+  patterns:
+    - "!node_modules/.bin/**"
+    - "!src/**"
+    - "!.git/**"
+    - "!.github/**"
+    - "!.gitignore"
+    - "!.serverless/**"
+    - "!test/**"
+    - "!tsconfig.json"
+    - "dist/**"
