@@ -28,7 +28,7 @@ jobs:
     
     - name: Build
       run: |
-        cd frontend
+        cd client
         VITE_API_URL=${{ secrets.API_GATEWAY_URL }} npm run build
     
     - name: Configure AWS credentials
