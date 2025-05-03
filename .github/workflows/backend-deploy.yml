@@ -43,3 +43,5 @@ jobs:
         NODE_ENV: 'prd'
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
         CLIENT_URL: ${{ secrets.CLIENT_URL }}
+
+    
