@@ -23,7 +23,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        cd backend
+        cd server
         npm ci
         npm install -g serverless
     
@@ -36,7 +36,7 @@ jobs:
     
     - name: Deploy with Serverless
       run: |
-        cd backend
+        cd server
         serverless deploy --stage prod
       env:
         MONGO_URI: ${{ secrets.MONGODB_URI }}
