@@ -1,7 +1,6 @@
 // server.ts
 import express, { Application } from 'express';
 import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
 import corsOptions from './config/cors';
 import connectDB from './config/db';
 import dotenv from 'dotenv';
@@ -20,7 +19,6 @@ const app: Application = express();
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cookieParser());
 app.use(corsOptions);
 
 // Connect to DB
@@ -33,14 +31,6 @@ app.use('/cart', cartRoutes);
 app.use('/order', orderRoutes);
 
 
-
-// For local development
-if (process.env.NODE_ENV !== 'production') {
-  const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3001;
-  app.listen(PORT, () => {
-    console.log(`Server running in development mode on port ${PORT}`);
-  });
-}
 
 // Export the Express app
 export default app;

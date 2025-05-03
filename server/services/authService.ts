@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { IUserDocument, IUserRegistration, IUserLogin, ILoginResponse } from '../types/userTypes';
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY as string;
+const JWT_SECRET = process.env.JWT_SECRET as string;
 
 const authService = {
     registerUser: async (
@@ -38,7 +38,7 @@ const authService = {
 
         const token = jwt.sign(
             { userId: user._id, role: user.role, username: user.username },
-            JWT_SECRET_KEY,
+            JWT_SECRET,
             { expiresIn: '24h' }
         );
 

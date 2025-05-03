@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const dbURI = process.env.MONGO_DB_URI;
+const dbURI = process.env.MONGO_URI;
 if (!dbURI) {
     throw new Error('MONGO_DB_URI is not defined');
 }
