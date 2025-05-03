@@ -23,7 +23,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        cd frontend
+        cd client
         npm ci
     
     - name: Build
@@ -40,7 +40,7 @@ jobs:
     
     - name: Deploy to S3
       run: |
-        cd frontend
+        cd client
         aws s3 sync build/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
     
     - name: Invalidate CloudFront cache
