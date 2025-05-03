@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs18.x
   stage: ${opt:stage, 'dev'}
-  region: ${opt:region, 'us-east-1'}
+  region: ${opt:region, 'ap-south-1'}
   environment:
     NODE_ENV: ${env:NODE_ENV, 'dev'}
     MONGO_URI: ${env:MONGO_URI}
